@@ -1,6 +1,6 @@
 {
   "name": "lodash",
-  "version": "4.17.20",
+  "version": "4.17.20-sp1",
   "license": "MIT",
   "private": true,
   "main": "lodash.js",
@@ -8,11 +8,12 @@
     "node": ">=4.0.0"
   },
   "scripts": {
+    "prepare": "npm run build && lodash core -o ./dist/lodash.core.js && npx uglifyjs ./dist/lodash.core.js -o ./dist/lodash.core.min.js -c -m && lodash modularize -o . && npm run build:main-modules && npm run build:fp-modules",
     "build": "npm run build:main && npm run build:fp",
     "build:fp": "node lib/fp/build-dist.js",
-    "build:fp-modules": "node lib/fp/build-modules.js",
+    "build:fp-modules": "node lib/fp/build-modules.js .",
     "build:main": "node lib/main/build-dist.js",
-    "build:main-modules": "node lib/main/build-modules.js",
+    "build:main-modules": "node lib/main/build-modules.js .",
     "doc": "node lib/main/build-doc github && npm run test:doc",
     "doc:fp": "node lib/fp/build-doc",
     "doc:site": "node lib/main/build-doc site",

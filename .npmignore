@@ -1,0 +1,16 @@
+# Development directories
+lib/
+test/
+perf/
+vendor/
+doc/
+
+# Build artifacts (if not needed)
+dist/mapping.fp.js
+
+# Config files
+.travis.yml
+.editorconfig
+.jscsrc
+.markdown-doctest-setup.js
+.gitattributes
